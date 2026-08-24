@@ -113,3 +113,24 @@ class ParasutClient:
         response = await request_with_backoff(_send)
         response.raise_for_status()
         return response.json()
+
+    async def post(self, path: str, *, json_body: Optional[dict[str, Any]] = None) -> dict:
+        """`{base_url}/{company_id}{path}` adresine authenticated POST.
+
+        429'da otomatik backoff/retry yapar. Diğer hata durumlarında
+        `httpx.HTTPStatusError` fırlatır.
+        """
+        token = await self.get_token()
+        url = f"{self.base_url}/{self.company_id}{path}"
+
+        async def _send() -> httpx.Response:
+            async with httpx.AsyncClient(timeout=self.http_timeout_seconds) as http:
+                return await http.post(
+                    url,
+                    json=json_body or {},
+                    headers={"Authorization": f"Bearer {token}"},
+                )
+
+        response = await request_with_backoff(_send)
+        response.raise_for_status()
+        return response.json()

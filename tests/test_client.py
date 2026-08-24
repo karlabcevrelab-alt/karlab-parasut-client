@@ -68,3 +68,21 @@ async def test_get_retries_429_then_succeeds():
 
     assert result == {"data": []}
     assert route.call_count == 2
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_post_sends_authenticated_request():
+    respx.post("https://api.parasut.com/oauth/token").mock(
+        return_value=httpx.Response(200, json={"access_token": "tok123", "expires_in": 7200})
+    )
+    route = respx.post("https://api.parasut.com/v4/297985/purchase_bills/42/payments").mock(
+        return_value=httpx.Response(201, json={"data": {"id": "999"}})
+    )
+    client = make_client()
+
+    result = await client.post("/purchase_bills/42/payments", json_body={"data": {"type": "payments"}})
+
+    assert result == {"data": {"id": "999"}}
+    sent_request = route.calls[0].request
+    assert sent_request.headers["Authorization"] == "Bearer tok123"
