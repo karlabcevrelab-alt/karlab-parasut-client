@@ -1,0 +1,70 @@
+{
+  "data": [
+    {
+      "id": "122930389",
+      "type": "purchase_bills",
+      "attributes": {
+        "net_total": "239.89",
+        "gross_total": "199.91",
+        "total_vat": "39.98",
+        "before_taxes_total": "199.91",
+        "remaining": "239.89",
+        "total_paid": "0.0",
+        "issue_date": "2026-07-14",
+        "due_date": "2026-07-14",
+        "currency": "TRL",
+        "archived": false,
+        "invoice_no": "BAO2026000055951",
+        "invoice_discount": "0.0"
+      },
+      "relationships": {
+        "supplier": {
+          "data": { "id": "9001", "type": "contacts" }
+        }
+      }
+    },
+    {
+      "id": "123946105",
+      "type": "purchase_bills",
+      "attributes": {
+        "net_total": "16524.5",
+        "gross_total": "16948.22",
+        "total_vat": "0.0",
+        "before_taxes_total": "16524.5",
+        "remaining": "16524.5",
+        "total_paid": "0.0",
+        "issue_date": "2026-07-31",
+        "due_date": "2026-08-03",
+        "currency": "TRL",
+        "archived": false,
+        "invoice_no": "EN12026000208943",
+        "invoice_discount": "423.72"
+      },
+      "relationships": {
+        "supplier": {
+          "data": { "id": "9002", "type": "contacts" }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "id": "9001",
+      "type": "contacts",
+      "attributes": {
+        "name": "MNG KARGO YURTİÇİ VE YURTDIŞI TAŞIMACILIK A.Ş.",
+        "tax_number": "6080712084",
+        "iban": null
+      }
+    },
+    {
+      "id": "9002",
+      "type": "contacts",
+      "attributes": {
+        "name": "SHELL & TURCAS PETROL AŞ",
+        "tax_number": "7690423575",
+        "iban": "TR280004600798888000008721"
+      }
+    }
+  ]
+}
