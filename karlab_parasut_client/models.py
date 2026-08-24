@@ -26,6 +26,9 @@ class NormalizedPurchaseBill:
     """
 
     parasut_id: str
+    supplier_parasut_id: Optional[str]
+    """Tedarikçinin Paraşüt contact id'si — eksik IBAN için ek sorgu veya
+    yerel DB'de referans olarak saklamak isteyen tüketiciler için."""
     supplier_name: str
     supplier_tax_no: Optional[str]
     supplier_iban: Optional[str]

@@ -23,6 +23,7 @@ async def test_fetch_maps_and_normalizes_bills():
 
     mng = bills[0]
     assert mng.parasut_id == "122930389"
+    assert mng.supplier_parasut_id == "9001"
     assert mng.supplier_name == "MNG KARGO YURTİÇİ VE YURTDIŞI TAŞIMACILIK A.Ş."
     assert mng.supplier_tax_no == "6080712084"
     assert mng.supplier_iban is None

@@ -42,6 +42,7 @@ def _map_bill(item: dict, contacts_by_id: dict[str, dict]) -> NormalizedPurchase
 
     return NormalizedPurchaseBill(
         parasut_id=str(item["id"]),
+        supplier_parasut_id=supplier_rel["id"] if supplier_rel else None,
         supplier_name=(
             contact_attrs.get("name") or contact_attrs.get("short_name") or ""
         ),
