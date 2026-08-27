@@ -56,6 +56,7 @@ def _map_bill(item: dict, contacts_by_id: dict[str, dict]) -> NormalizedPurchase
         total_paid=_parse_decimal(attrs.get("total_paid")),
         currency=normalize_currency(attrs.get("currency")),
         archived=bool(attrs.get("archived")),
+        description=attrs.get("description"),
         raw=attrs,
     )
 

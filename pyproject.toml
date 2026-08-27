@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "karlab-parasut-client"
-version = "0.1.2"
+version = "0.1.3"
 description = "Paylaşılan Paraşüt purchase_bills client — HTTP, normalizasyon, retry/backoff (domain mantığı YOK)"
 readme = "README.md"
 requires-python = ">=3.11"

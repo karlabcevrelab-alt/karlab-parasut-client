@@ -49,6 +49,14 @@ class NormalizedPurchaseBill:
 
     archived: bool
 
+    description: Optional[str] = None
+    """Paraşüt'ün purchase_bill.description alanı — insan tarafından
+    girilmiş serbest metin. Cari kart seçilmeden ("Gider Fişi" olarak,
+    sadece fiş/fatura fotoğrafıyla) girilen kayıtlarda supplier_name boş
+    gelir (contact yok); bu durumda description çoğunlukla tedarikçi
+    adını taşır — tüketiciler supplier_name boşken buna fallback
+    yapabilir. Contact'a bağlı normal faturalarda genelde boştur."""
+
     raw: dict[str, Any] = field(default_factory=dict, repr=False, compare=False)
     """Ham `attributes` sözlüğü — ileride ihtiyaç olursa, ama normal akışta
     kullanılmamalı (yeni bir alan gerekiyorsa modele eklenmeli, raw'dan
